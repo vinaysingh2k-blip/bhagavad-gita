@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /success.html
+Disallow: /failure.html
+Disallow: /server/
+
+Sitemap: https://www.yourdomain.com/sitemap.xml
