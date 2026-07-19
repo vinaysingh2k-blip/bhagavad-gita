@@ -438,7 +438,7 @@ section.section { padding: 84px 0; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .hub-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.hub-card-cover { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: var(--color-cream); }
+.hub-card-cover { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; display: block; background: var(--color-cream); }
 .hub-card-body { padding: 22px 24px 24px; }
 .hub-card h3 { font-size: 20px; margin-bottom: 8px; }
 .hub-card p { color: var(--color-ink-soft); font-size: 14px; margin-bottom: 18px; line-height: 1.55; }
