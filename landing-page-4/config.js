@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Page-specific configuration — Landing Page 4: "Gita for Students & Focus"
+   Page-specific configuration — Landing Page 4: "The Divine Song of God"
    Loaded BEFORE ../assets/main.js. Replace placeholders before launch.
    ========================================================================== */
 window.PAGE_CONFIG = {
-  PRODUCT_NAME: 'Gita for Students & Focus — Illustrated Bhagavad Gita',
+  PRODUCT_NAME: 'Bhagavad Gita: The Divine Song of God — Illustrated Edition',
   BRAND_NAME: 'Krishna Vani',
   AMOUNT_INR: 299,
   PAY_BUTTON_LABEL: 'Pay ₹299 & Get Instant Access →',
