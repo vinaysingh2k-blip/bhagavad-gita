@@ -1,41 +1,46 @@
 # Krishna Vani — 4 Bhagavad Gita Landing Pages
 
-Four independent, production-ready landing pages for the same illustrated
-Bhagavad Gita product, each written for a different audience angle — built
-in the style of krishnavani.org's landing pages, with Razorpay payment
-placeholders ready to activate.
+Four independent, production-ready landing pages — one per real source PDF
+in `Downloads/Bhagwad Gita/` — built in the style of krishnavani.org's
+landing pages, with Razorpay payment placeholders ready to activate and
+real cover art extracted from each source PDF.
 
-| Page | Folder | Angle | URL (relative) |
-|---|---|---|---|
-| 1 | `landing-page-1/` | Gita for Harmony (inner peace, stress) | `/landing-page-1/` |
-| 2 | `landing-page-2/` | Gita for Career Success (professionals, leadership) | `/landing-page-2/` |
-| 3 | `landing-page-3/` | Gita for Relationships (family, compassion) | `/landing-page-3/` |
-| 4 | `landing-page-4/` | Gita for Students & Focus (exam stress, discipline) | `/landing-page-4/` |
+| Page | Folder | Product | Chapters | Price |
+|---|---|---|---|---|
+| 1 | `landing-page-1/` | Gita for Harmony | 18 (complete) | ₹299 |
+| 2 | `landing-page-2/` | Gita for Career Success | 12 (companion) | ₹199 |
+| 3 | `landing-page-3/` | Gita for Harmony & Balance | 12 (companion) | ₹199 |
+| 4 | `landing-page-4/` | The Divine Song of God | 18 (complete) | ₹299 |
 
-All four sell the same underlying illustrated 18-chapter edition (₹299) —
-only the headline, hero copy, featured verses, teachings section, and
-testimonials differ per audience. This mirrors how krishnavani.org runs
-multiple angle-specific pages (`gita-for-harmony`, `gita-for-career-success`)
-for one core product.
+These are four genuinely different products (verified against their source
+PDFs), not one product re-skinned four ways: pages 2 and 3 distill the same
+12 core chapters with different reflection text (career vs. everyday
+balance); pages 1 and 4 are both complete 18-chapter editions, with page 4
+additionally including a dedication, preface, and Four Paths section.
 
 ## Project structure
 
 ```
 ebook/
-├── index.html                 Hub page — links to all 4 landing pages
+├── index.html                 Hub page — 4 product cards (cover, title, price, "Get it →")
 ├── assets/
 │   ├── styles.css               Shared design system (used by all pages)
 │   ├── main.js                  Shared behavior: form validation, Razorpay
 │   │                             checkout, sticky CTA, scroll reveals —
 │   │                             reads window.PAGE_CONFIG per page
 │   ├── success.html              Shared post-payment success page
-│   └── failure.html              Shared post-payment failure/retry page
+│   ├── failure.html              Shared post-payment failure/retry page
+│   └── covers/                   Real cover art cropped from each source PDF (JPEG, ~100-250KB each)
+│       ├── gita-for-harmony.jpg
+│       ├── gita-for-career-success.jpg
+│       ├── gita-for-harmony-balance.jpg
+│       └── divine-song-of-god.jpg
 ├── landing-page-1/
 │   ├── index.html                 "Gita for Harmony" page content
 │   └── config.js                   Page-specific CONFIG (price, product name, Razorpay link)
 ├── landing-page-2/                 "Gita for Career Success" (same structure)
-├── landing-page-3/                 "Gita for Relationships" (same structure)
-├── landing-page-4/                 "Gita for Students & Focus" (same structure)
+├── landing-page-3/                 "Gita for Harmony & Balance" (same structure)
+├── landing-page-4/                 "The Divine Song of God" (same structure)
 ├── robots.txt                     Search engine crawl rules (all 4 URLs)
 ├── sitemap.xml                     XML sitemap (hub + 4 landing pages)
 ├── google-ads-assets.md             Full Google Ads copy for all 4 pages
@@ -88,7 +93,7 @@ All four `config.js` files use the same two options:
 
 ### Option A — Razorpay Payment Link (simplest, no backend needed)
 
-1. In the Razorpay Dashboard (account: `synapsedigitalsolutions.dm@gmail.com`) → **Payment Links** → create a link for ₹299 (or your final price).
+1. In the Razorpay Dashboard (account: `synapsedigitalsolutions.dm@gmail.com`) → **Payment Links** → create one link per price point: **₹199** (for pages 2 and 3) and **₹299** (for pages 1 and 4). Four separate links, one per page, is recommended so Razorpay reporting shows revenue per product.
 2. Open **each** `landing-page-N/config.js`, find:
    ```js
    RAZORPAY_PAYMENT_LINK: 'https://rzp.io/l/PLACEHOLDER-PAYMENT-LINK',
@@ -156,8 +161,9 @@ across pages, since Quality Score depends on tight message-to-landing-page relev
 
 ## 7. Performance & accessibility notes
 
-- No external images are used (each hero "book cover" is pure CSS) — keeps every page extremely fast.
-- To add real images later: use modern formats (WebP/AVIF), set explicit `width`/`height`, and add `loading="lazy"` to any image below the fold.
+- Cover images (`assets/covers/*.jpg`) are real cover art cropped from each source PDF, resized to 900px wide and compressed to ~100-250KB each — small enough to keep every page fast. Each landing page's hero cover loads eagerly (it's the likely LCP element, above the fold); the hub page lazy-loads its 2nd-4th cards (`loading="lazy"`) since only the 1st is guaranteed above the fold on most screens.
+- All `<img>` tags carry explicit `width`/`height` to prevent layout shift (a Core Web Vitals / CLS factor).
+- To further optimize: convert the JPEGs to WebP/AVIF with a `<picture>` fallback.
 - Fonts load via `<link>` with `preconnect` for faster first paint.
 - All interactive elements (`<details>` FAQ, form fields, buttons) are keyboard-accessible by default.
 
