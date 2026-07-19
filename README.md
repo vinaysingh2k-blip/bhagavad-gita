@@ -31,10 +31,14 @@ ebook/
 │   ├── success.html              Shared post-payment success page
 │   ├── failure.html              Shared post-payment failure/retry page
 │   └── covers/                   Real cover art cropped from each source PDF (JPEG, ~100-250KB each)
-│       ├── gita-for-harmony.jpg
-│       ├── gita-for-career-success.jpg
-│       ├── gita-for-harmony-balance.jpg
-│       └── divine-song-of-god.jpg
+│       ├── gita-for-harmony.jpg              Full cover — used in landing-page-1 hero
+│       ├── gita-for-harmony-square.jpg        Square (800x800) crop — used on hub card
+│       ├── gita-for-career-success.jpg       Full cover — used in landing-page-2 hero
+│       ├── gita-for-career-success-square.jpg Square (800x800) crop — used on hub card
+│       ├── gita-for-harmony-balance.jpg      Full cover — used in landing-page-3 hero
+│       ├── gita-for-harmony-balance-square.jpg Square (800x800) crop — used on hub card
+│       ├── divine-song-of-god.jpg            Full cover — used in landing-page-4 hero
+│       └── divine-song-of-god-square.jpg      Square (800x800) crop — used on hub card
 ├── landing-page-1/
 │   ├── index.html                 "Gita for Harmony" page content
 │   └── config.js                   Page-specific CONFIG (price, product name, Razorpay link)
