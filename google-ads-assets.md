@@ -1,4 +1,11 @@
-# Google Ads Assets — Krishna Vani (4 Landing Pages)
+# Google Ads Assets — Krishna Vani
+
+> **Coverage note:** the site now has 15 landing pages total (see the
+> catalog table in `README.md`), but this file currently has complete
+> campaign copy for **only pages 1-4** (the original catalog). Pages 5-15
+> (the Practical Guide Series + Hanuman Chalisa) still need equivalent
+> headline/description/keyword sections written in the same format below
+> before running ads on them.
 
 Four distinct products, each with its own landing page. Run each as its own
 Google Ads campaign or ad group so headlines/keywords stay tightly relevant
