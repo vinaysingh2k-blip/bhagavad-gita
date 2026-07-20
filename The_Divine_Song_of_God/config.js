@@ -9,7 +9,7 @@ window.PAGE_CONFIG = {
   AMOUNT_INR: 299,
   PAY_BUTTON_LABEL: 'Pay ₹299 & Get Instant Access →',
 
-  RAZORPAY_PAYMENT_LINK: 'https://rzp.io/rzp/EFRvvdn',
+  RAZORPAY_PAYMENT_LINK: 'https://rzp.io/rzp/IHJMa3Q5',
 
   USE_INLINE_CHECKOUT: false,
   RAZORPAY_KEY_ID: 'rzp_test_PLACEHOLDER_KEY_ID',
