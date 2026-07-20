@@ -21,7 +21,7 @@ to the landing page they point to (this also protects Quality Score).
 ---
 
 # Landing Page 1 — Gita for Harmony (₹299, 18 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/Gita_for_Harmony/`
+Final URL: `https://krishnavani-bhagwad-gita.vercel.app/Gita_for_Harmony/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
@@ -77,7 +77,7 @@ free, torrent, pdf download free, audiobook free, summary only, app, game, job, 
 ---
 
 # Landing Page 2 — Gita for Career Success (₹199, 12 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/Gita_for_Career_Success/`
+Final URL: `https://krishnavani-bhagwad-gita.vercel.app/Gita_for_Career_Success/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
@@ -133,7 +133,7 @@ free, torrent, pdf download free, audiobook free, summary only, app, game, mba c
 ---
 
 # Landing Page 3 — Gita for Harmony & Balance (₹199, 12 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/Gita_for_Harmony_and_Balance/`
+Final URL: `https://krishnavani-bhagwad-gita.vercel.app/Gita_for_Harmony_and_Balance/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
@@ -189,7 +189,7 @@ free, torrent, pdf download free, audiobook free, summary only, app, game, job, 
 ---
 
 # Landing Page 4 — The Divine Song of God (₹299, 18 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/The_Divine_Song_of_God/`
+Final URL: `https://krishnavani-bhagwad-gita.vercel.app/The_Divine_Song_of_God/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
