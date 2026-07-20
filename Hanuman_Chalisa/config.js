@@ -11,7 +11,7 @@ window.PAGE_CONFIG = {
 
   // Option A (simplest): a hosted Razorpay Payment Link. Replace this with
   // your real link — until then, the button shows a graceful fallback.
-  RAZORPAY_PAYMENT_LINK: 'https://rzp.io/rzp/Y1lRCCLK',
+  RAZORPAY_PAYMENT_LINK: 'https://rzp.io/rzp/fXwQIFj',
 
   // Option B (advanced): inline Checkout.js modal. See /server/server-stub.js.
   USE_INLINE_CHECKOUT: false,
