@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Shared landing-page script — used by all 4 Bhagavad Gita landing pages.
+   Shared landing-page script — used by all 15 Bhagavad Gita landing pages.
    Each page defines its own `window.PAGE_CONFIG` (see config.js in each
-   landing-page-N/ folder) before this file loads. This file contains no
+   product folder) before this file loads. This file contains no
    product-specific text, so it is safe to reuse unmodified across pages.
    ========================================================================== */
 
