@@ -4,6 +4,7 @@
    ========================================================================== */
 window.PAGE_CONFIG = {
   PRODUCT_NAME: 'Bhagavad Gita: The Divine Song of God — Illustrated Edition',
+  DOWNLOAD_FILE: '../assets/downloads/divine-song-of-god.pdf',
   BRAND_NAME: 'Krishna Vani',
   AMOUNT_INR: 299,
   PAY_BUTTON_LABEL: 'Pay ₹299 & Get Instant Access →',
