@@ -125,7 +125,7 @@ Any static host works — no server required for the base sites:
 - **Shared hosting / cPanel:** upload everything except `server/` to `public_html`.
 
 Before going live, for **each** landing page and the hub, update:
-- `<link rel="canonical">`, Open Graph `og:url`/`og:image`, and JSON-LD `url` fields — replace `https://bhagavad-gita.vercel.app/` with your real domain.
+- `<link rel="canonical">`, Open Graph `og:url`/`og:image`, and JSON-LD `url` fields — replace `https://bhagavad-gita-landing-page.vercel.app/` with your real domain.
 - `robots.txt` and `sitemap.xml` — same domain replacement (one edit covers all 15 pages since they're listed together).
 - Footer email address and WhatsApp number (`wa.me/910000000000` in each page's floating button — replace with your real WhatsApp Business number).
 
