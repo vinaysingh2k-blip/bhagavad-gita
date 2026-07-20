@@ -13,15 +13,15 @@ to the landing page they point to (this also protects Quality Score).
 
 | Page | Product | Chapters | Price |
 |---|---|---|---|
-| `landing-page-1/` | Gita for Harmony | 18 (complete) | ₹299 |
-| `landing-page-2/` | Gita for Career Success | 12 (companion) | ₹199 |
-| `landing-page-3/` | Gita for Harmony & Balance | 12 (companion) | ₹199 |
-| `landing-page-4/` | The Divine Song of God | 18 (complete) | ₹299 |
+| `Gita_for_Harmony/` | Gita for Harmony | 18 (complete) | ₹299 |
+| `Gita_for_Career_Success/` | Gita for Career Success | 12 (companion) | ₹199 |
+| `Gita_for_Harmony_and_Balance/` | Gita for Harmony & Balance | 12 (companion) | ₹199 |
+| `The_Divine_Song_of_God/` | The Divine Song of God | 18 (complete) | ₹299 |
 
 ---
 
 # Landing Page 1 — Gita for Harmony (₹299, 18 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/landing-page-1/`
+Final URL: `https://bhagavad-gita-landing-page.vercel.app/Gita_for_Harmony/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
@@ -77,7 +77,7 @@ free, torrent, pdf download free, audiobook free, summary only, app, game, job, 
 ---
 
 # Landing Page 2 — Gita for Career Success (₹199, 12 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/landing-page-2/`
+Final URL: `https://bhagavad-gita-landing-page.vercel.app/Gita_for_Career_Success/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
@@ -133,7 +133,7 @@ free, torrent, pdf download free, audiobook free, summary only, app, game, mba c
 ---
 
 # Landing Page 3 — Gita for Harmony & Balance (₹199, 12 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/landing-page-3/`
+Final URL: `https://bhagavad-gita-landing-page.vercel.app/Gita_for_Harmony_and_Balance/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
@@ -189,7 +189,7 @@ free, torrent, pdf download free, audiobook free, summary only, app, game, job, 
 ---
 
 # Landing Page 4 — The Divine Song of God (₹299, 18 chapters)
-Final URL: `https://bhagavad-gita-landing-page.vercel.app/landing-page-4/`
+Final URL: `https://bhagavad-gita-landing-page.vercel.app/The_Divine_Song_of_God/`
 
 ## Headlines (15, ≤30 characters)
 | # | Headline | Chars |
