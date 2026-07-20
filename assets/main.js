@@ -145,6 +145,7 @@
     if (CONFIG.RAZORPAY_PAYMENT_LINK && CONFIG.RAZORPAY_PAYMENT_LINK.indexOf('PLACEHOLDER') === -1) {
       try {
         sessionStorage.setItem('lastProductName', CONFIG.PRODUCT_NAME || '');
+        sessionStorage.setItem('lastDownloadFile', CONFIG.DOWNLOAD_FILE || '');
       } catch (e) { /* no-op */ }
       window.location.href = CONFIG.RAZORPAY_PAYMENT_LINK;
       return;
@@ -186,6 +187,7 @@
           handler: function (response) {
             try {
               sessionStorage.setItem('lastProductName', CONFIG.PRODUCT_NAME || '');
+              sessionStorage.setItem('lastDownloadFile', CONFIG.DOWNLOAD_FILE || '');
             } catch (e) { /* no-op */ }
             window.location.href = (CONFIG.SUCCESS_PAGE || '../assets/success.html') +
               '?payment_id=' + encodeURIComponent(response.razorpay_payment_id || '');
