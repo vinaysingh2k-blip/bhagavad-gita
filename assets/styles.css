@@ -161,7 +161,8 @@ section.section { padding: 84px 0; }
 
 /* ---------- Hero Visual (CSS book mock) ---------- */
 .hero-visual { position: relative; display: flex; justify-content: center; padding: 20px; }
-.book-mock { position: relative; width: 280px; }
+.book-mock { position: relative; width: 220px; max-width: 60vw; }
+.book-mock img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; }
 .book-mock-cover {
   background: linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark));
   border-radius: 10px 16px 16px 10px;
