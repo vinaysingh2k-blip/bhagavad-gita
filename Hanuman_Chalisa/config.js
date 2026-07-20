@@ -4,6 +4,7 @@
    ========================================================================== */
 window.PAGE_CONFIG = {
   PRODUCT_NAME: 'Hanuman Chalisa — Illustrated Edition',
+  DOWNLOAD_FILE: '../assets/downloads/hanuman-chalisa.pdf',
   BRAND_NAME: 'Krishna Vani',
   AMOUNT_INR: 99,
   PAY_BUTTON_LABEL: 'Pay ₹99 & Get Instant Access →',
