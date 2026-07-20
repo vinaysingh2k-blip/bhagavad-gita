@@ -4,6 +4,7 @@
    ========================================================================== */
 window.PAGE_CONFIG = {
   PRODUCT_NAME: 'Gita for Energy & Health — 12-Chapter Original Companion',
+  DOWNLOAD_FILE: '../assets/downloads/gita-for-energy-and-health.pdf',
   BRAND_NAME: 'Krishna Vani',
   AMOUNT_INR: 199,
   PAY_BUTTON_LABEL: 'Pay ₹199 & Get Instant Access →',
