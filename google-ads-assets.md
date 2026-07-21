@@ -20,14 +20,33 @@ and send it to the home page, where visitors can browse and pick from all
 
 | Setting | Value |
 |---|---|
-| Campaign name | Krishna Vani — Bhagavad Gita & Hanuman Chalisa (Home) |
+| Campaign name | **krishnavani max leads conversion** |
 | Campaign type | Search Network only (turn off Display/Search Partners to protect a small budget) |
 | Daily budget | **₹80/day** (~₹2,400/month) |
-| Bidding | **Maximize Clicks** to start (no conversion history yet); switch to **Maximize Conversions** once you have 15-20 recorded conversions in Google Ads |
-| Locations | **India** (all states/UTs — Pan India) |
+| Bidding | **Start on "Maximize Clicks"** — see note below on why, despite the campaign name |
+| Locations | **India only** (all states/UTs — Pan India, no other countries) |
 | Languages | English + Hindi |
-| Final URL (all ads) | `https://krishnavani-bhagwad-gita.vercel.app/` |
+| Final URL (all ads) | `https://krishnavani-bhagwad-gita.vercel.app/index.html` |
 | Ad rotation | Optimize: prefer best performing ads |
+
+**On the campaign name vs. bidding strategy:** "Maximize Conversions" bidding
+needs conversion history to actually work — pointed at a brand-new account
+with zero recorded conversions, it has nothing to optimize against and
+often overspends on the wrong clicks in week one. The name
+"krishnavani max leads conversion" describes the *goal*; the *bid strategy*
+should still start on **Maximize Clicks** for the first ~2-3 weeks (long
+enough to gather 15-20 real conversions), then switch to **Maximize
+Conversions** (or **Target CPA** once you know a realistic cost-per-sale).
+Google Ads → this campaign → Settings → Bidding — that's the one setting to
+revisit later; everything else here is ready as-is.
+
+**Conversion tracking — required for "max leads conversion" to mean anything:**
+Set up a Google Ads conversion action (or import from GA4) that fires on
+`assets/success.html`, not on `index.html`. That page only loads after a
+real Razorpay payment completes, so a hit there is a genuine sale, not just
+a page view. Without this, Google Ads has no way to know which clicks
+actually converted, and "Maximize Conversions" can never be switched on
+meaningfully.
 
 **Budget reality check:** ₹80/day is tight — realistically **8-25 clicks/day**
 depending on actual CPC in this niche. At this budget, use **Phrase Match**
@@ -119,11 +138,38 @@ Score and keeps CPC down, more than the budget setting itself).
 
 ## Shared assets (both ad groups)
 
-### Sitelinks (4)
-1. **Bhagavad Gita Editions** — Complete & focused editions / Sanskrit, Hindi & English → `/`
-2. **Hanuman Chalisa** — Complete traditional text / With Hindi & English meaning → `/Hanuman_Chalisa/`
-3. **Why Krishna Vani** — The Four Pillars of our editions / Career, purpose, peace & growth → `/#why`
-4. **About Us** — Who we are, what we publish → `/about.html`
+### Sitelinks — all 15 product pages (their real folder/file names)
+
+Google Ads lets you add up to 20 sitelinks per campaign (it auto-rotates
+the best-performing 2-6 under each ad, based on device and ad rank) — so
+listing every product here is normal, not excessive. Add all 15 plus the
+2 utility links at the bottom (17 total). Format per sitelink: **Link
+text**, Description line 1, Description line 2, → final URL (folder name
+= the actual page on your site).
+
+| # | Link Text | Description Line 1 | Description Line 2 | Final URL |
+|---|---|---|---|---|
+| 1 | Gita for Harmony | Complete 18-chapter illustrated Gita | Sanskrit, Hindi & English · ₹299 | `/Gita_for_Harmony/` |
+| 2 | The Divine Song of God | Complete Gita with preface & Four Paths | Sanskrit, Hindi & English · ₹299 | `/The_Divine_Song_of_God/` |
+| 3 | Gita for Career Success | 12-chapter companion for professionals | Duty, focus, steady action · ₹199 | `/Gita_for_Career_Success/` |
+| 4 | Gita for Harmony & Balance | 12-chapter companion for daily calm | Sanskrit, Hindi & English · ₹199 | `/Gita_for_Harmony_and_Balance/` |
+| 5 | Gita for Productivity | Beat distraction, focus better | Verse + practice per chapter · ₹199 | `/Gita_for_Productivity/` |
+| 6 | Gita for Energy & Health | Steady energy, body finally cared for | Verse + practice per chapter · ₹199 | `/Gita_for_Energy_and_Health/` |
+| 7 | Gita for Building Discipline | Discipline that outlasts motivation | Verse + practice per chapter · ₹199 | `/Gita_for_Building_Discipline/` |
+| 8 | Gita for Earned Confidence | Confidence built on action, not approval | Verse + practice per chapter · ₹199 | `/Gita_for_Earned_Confidence/` |
+| 9 | Gita for Finding Your Purpose | Find the work that is truly yours | Verse + practice per chapter · ₹199 | `/Gita_for_Finding_Your_Purpose/` |
+| 10 | Gita for Money & Abundance | Hold wealth without being held by it | Verse + practice per chapter · ₹199 | `/Gita_for_Money_and_Abundance/` |
+| 11 | Gita for Deeper Relationships | Steadier, more honest connection | Verse + practice per chapter · ₹199 | `/Gita_for_Deeper_Relationships/` |
+| 12 | Gita for Calm Steady Leadership | Lead others without losing your center | Verse + practice per chapter · ₹199 | `/Gita_for_Calm_Steady_Leadership/` |
+| 13 | Gita for Grounded Parenting | Parent from steadiness, not reaction | Verse + practice per chapter · ₹199 | `/Gita_for_Grounded_Parenting/` |
+| 14 | Gita for Steadiness Over Anxiety | Calm mind, strong heart, balanced life | Verse + practice per chapter · ₹199 | `/Gita_for_Steadiness_Over_Anxiety/` |
+| 15 | Hanuman Chalisa | Complete traditional 40-chaupai hymn | Sanskrit, Hindi & English · ₹99 | `/Hanuman_Chalisa/` |
+| 16 | Why Krishna Vani | The Four Pillars of our editions | Career, purpose, peace & growth | `/#why` |
+| 17 | About Us | Who we are, what we publish | — | `/about.html` |
+
+**Note on URLs:** these are relative paths — prefix each with
+`https://krishnavani-bhagwad-gita.vercel.app` when entering into Google
+Ads (e.g. row 1 becomes `https://krishnavani-bhagwad-gita.vercel.app/Gita_for_Harmony/`).
 
 ### Callouts (10)
 Instant Digital Delivery · 7-Day Money-Back Guarantee · Secure Razorpay Checkout · Sanskrit, Hindi & English · 15 Editions to Choose From · Trusted Pan-India · From ₹99 · No Subscription, One-Time Price · Illustrated Editions Available · Read on Any Device
@@ -139,9 +185,10 @@ Instant Digital Delivery · 7-Day Money-Back Guarantee · Secure Razorpay Checko
 free, torrent, pdf download free, audiobook free, movie, serial, tv show, temple, aarti timing, job, course, used books, rent, library, wallpaper, image, photo, ringtone, app download, whatsapp status, quotes only, summary only
 
 ## Setup notes specific to this campaign
-- Since the final URL is the home page (not a single product), **Enhanced Conversions / conversion tracking should fire from each product page's checkout success**, not the home page itself — make sure your Google Ads conversion tag (or GA4 goal) is placed on `assets/success.html`, not `index.html`.
+- Conversion tracking setup is covered above (under Campaign settings) — do this before spending a single rupee, or you'll have no way to judge if the ₹80/day is working.
 - Review Search Terms report **daily for the first 2 weeks** given the small budget — add anything irrelevant straight to negative keywords so ₹80/day isn't wasted on mismatched clicks.
-- Once you see which of the two ad groups converts better, consider shifting more of the ₹80 budget toward it via ad group-level bid adjustments, or splitting into two separate ₹40/day campaigns for cleaner budget control.
+- Watch which sitelinks actually get clicked (Google Ads → Assets → sitelink-level stats) — that tells you which of the 15 books people search for most, useful signal for where to focus future content/ads.
+- Once you see which of the two ad groups (Gita vs. Hanuman Chalisa) converts better, consider shifting more of the ₹80 budget toward it via ad group-level bid adjustments, or splitting into two separate ₹40/day campaigns for cleaner budget control.
 
 ---
 
