@@ -14,7 +14,16 @@
     initFormValidation();
     initStickyCta();
     initScrollReveal();
+    initContactClickTracking();
   });
+
+  /* ------------------------------------------------------------------
+   * GTM / DATALAYER EVENTS — no PII (name/email/mobile) is ever pushed.
+   * ------------------------------------------------------------------ */
+  function pushEvent(eventName, data) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: eventName }, data));
+  }
 
   /* ------------------------------------------------------------------
    * FORM VALIDATION + CHECKOUT TRIGGER
@@ -94,6 +103,12 @@
         amount: CONFIG.AMOUNT_INR
       };
 
+      pushEvent('generate_lead', {
+        currency: 'INR',
+        value: CONFIG.AMOUNT_INR,
+        lead_product: CONFIG.PRODUCT_NAME
+      });
+
       submitLead(leadData);
 
       successMsg.hidden = false;
@@ -137,6 +152,12 @@
    * RAZORPAY CHECKOUT (placeholder-ready)
    * ------------------------------------------------------------------ */
   function startCheckout(leadData) {
+    pushEvent('begin_checkout', {
+      currency: 'INR',
+      value: leadData.amount,
+      items: [{ item_name: leadData.product }]
+    });
+
     if (CONFIG.USE_INLINE_CHECKOUT && CONFIG.RAZORPAY_KEY_ID && CONFIG.RAZORPAY_KEY_ID.indexOf('PLACEHOLDER') === -1) {
       startInlineRazorpayCheckout(leadData);
       return;
@@ -146,6 +167,7 @@
       try {
         sessionStorage.setItem('lastProductName', CONFIG.PRODUCT_NAME || '');
         sessionStorage.setItem('lastDownloadFile', CONFIG.DOWNLOAD_FILE || '');
+        sessionStorage.setItem('lastAmount', CONFIG.AMOUNT_INR || '');
       } catch (e) { /* no-op */ }
       window.location.href = CONFIG.RAZORPAY_PAYMENT_LINK;
       return;
@@ -188,6 +210,7 @@
             try {
               sessionStorage.setItem('lastProductName', CONFIG.PRODUCT_NAME || '');
               sessionStorage.setItem('lastDownloadFile', CONFIG.DOWNLOAD_FILE || '');
+              sessionStorage.setItem('lastAmount', CONFIG.AMOUNT_INR || '');
             } catch (e) { /* no-op */ }
             window.location.href = (CONFIG.SUCCESS_PAGE || '../assets/success.html') +
               '?payment_id=' + encodeURIComponent(response.razorpay_payment_id || '');
@@ -207,6 +230,20 @@
       .catch(function () {
         alert('Unable to start payment right now. Please try again in a moment.');
       });
+  }
+
+  /* ------------------------------------------------------------------
+   * WHATSAPP / EMAIL CLICK TRACKING
+   * ------------------------------------------------------------------ */
+  function initContactClickTracking() {
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href*="wa.me"], a[href^="mailto:"]');
+      if (!link) return;
+      pushEvent('contact_click', {
+        contact_method: link.href.indexOf('mailto:') === 0 ? 'email' : 'whatsapp',
+        lead_product: CONFIG.PRODUCT_NAME
+      });
+    });
   }
 
   /* ------------------------------------------------------------------

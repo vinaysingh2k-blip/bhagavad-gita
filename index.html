@@ -393,5 +393,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
+<script>
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.hub-card');
+    if (!card) return;
+    var titleEl = card.querySelector('h3');
+    var priceEl = card.querySelector('.hub-card-price');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'select_content',
+      content_type: 'landing_page',
+      item_name: titleEl ? titleEl.textContent.trim() : '',
+      currency: 'INR',
+      value: priceEl ? Number(priceEl.textContent.replace(/[^\d.]/g, '')) : undefined
+    });
+  });
+</script>
+
 </body>
 </html>

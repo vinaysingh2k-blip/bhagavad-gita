@@ -100,6 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   try {
     var productName = sessionStorage.getItem('lastProductName');
     var downloadFile = sessionStorage.getItem('lastDownloadFile');
+    var lastAmount = sessionStorage.getItem('lastAmount');
 
     if (productName) {
       document.getElementById('success-product-line').textContent =
@@ -114,6 +115,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       downloadBtn.hidden = false;
       unavailableMsg.style.display = 'none';
     }
+
+    var paymentId = new URLSearchParams(window.location.search).get('payment_id') || '';
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'purchase',
+      transaction_id: paymentId,
+      currency: 'INR',
+      value: lastAmount ? Number(lastAmount) : undefined,
+      items: productName ? [{ item_name: productName }] : []
+    });
   } catch (e) { /* no-op */ }
 </script>
 </body>
