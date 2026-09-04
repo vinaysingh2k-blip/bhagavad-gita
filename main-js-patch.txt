@@ -1,0 +1,51 @@
+/**
+ * PATCH FOR: assets/main.js
+ *
+ * Add this near the top of the file (after any existing dataLayer setup,
+ * or at the very top if there is none):
+ */
+
+window.dataLayer = window.dataLayer || [];
+
+/**
+ * Then find the place in main.js where the user clicks "Get it" / the buy
+ * button and the code:
+ *   1. Reads window.PAGE_CONFIG (DOWNLOAD_FILE, PRODUCT_NAME, AMOUNT_INR,
+ *      RAZORPAY_PAYMENT_LINK)
+ *   2. Stores DOWNLOAD_FILE + PRODUCT_NAME into sessionStorage
+ *   3. Redirects to RAZORPAY_PAYMENT_LINK
+ *
+ * It will look something like this (adjust variable names to match what's
+ * actually there — the shape/order is what matters):
+ */
+
+function handleBuyClick() {
+  const config = window.PAGE_CONFIG;
+
+  // --- ADD THIS BLOCK (Begin Checkout conversion) ---
+  window.dataLayer.push({
+    event: "begin_checkout_book",
+    book_title: config.PRODUCT_NAME,
+    value: config.AMOUNT_INR,
+    currency: "INR",
+  });
+  // --- END ADDED BLOCK ---
+
+  // Existing behavior — keep as-is:
+  sessionStorage.setItem("DOWNLOAD_FILE", config.DOWNLOAD_FILE);
+  sessionStorage.setItem("PRODUCT_NAME", config.PRODUCT_NAME);
+
+  // ALSO ADD — needed so success.html can report the correct value/currency
+  // on the Purchase event later:
+  sessionStorage.setItem("AMOUNT_INR", config.AMOUNT_INR);
+
+  window.location.href = config.RAZORPAY_PAYMENT_LINK;
+}
+
+/**
+ * That's it for main.js. Since every one of the 15 pages loads this same
+ * shared file with its own config.js already providing PRODUCT_NAME and
+ * AMOUNT_INR, this one change covers all 15 pages — Begin Checkout will
+ * fire with the correct book title and price for whichever page the user
+ * is actually on.
+ */
