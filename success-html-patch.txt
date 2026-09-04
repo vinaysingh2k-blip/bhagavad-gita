@@ -1,0 +1,49 @@
+<!--
+  PATCH FOR: assets/success.html
+
+  Add this <script> block right before the closing </body> tag, after
+  whatever existing script reads sessionStorage to show the download
+  button.
+
+  IMPORTANT CAVEAT (documented in the repo's README — "no server-side
+  payment verification"): this fires because the user landed on this page
+  via Razorpay's redirect, not because a payment was independently
+  confirmed. It's the best available signal without a backend, but if
+  someone reaches this URL directly without paying, it will still count
+  as a Purchase. Worth knowing when interpreting the numbers, and worth
+  fixing later via the Option B / webhook approach described in the repo's
+  README if you need more accurate numbers.
+-->
+
+<script>
+  (function () {
+    window.dataLayer = window.dataLayer || [];
+
+    var productName = sessionStorage.getItem("PRODUCT_NAME");
+    var amount = sessionStorage.getItem("AMOUNT_INR");
+
+    // Prevents double-counting if the customer refreshes the success page.
+    var alreadyTracked = sessionStorage.getItem("PURCHASE_TRACKED");
+
+    if (productName && !alreadyTracked) {
+      // Razorpay Payment Pages append razorpay_payment_id to the redirect
+      // URL as a query parameter on success — use it as the transaction ID
+      // if present, so repeat page loads of the same purchase don't
+      // double-count even across sessionStorage clears.
+      var urlParams = new URLSearchParams(window.location.search);
+      var paymentId =
+        urlParams.get("razorpay_payment_id") ||
+        "no_payment_id_" + Date.now(); // fallback, should rarely trigger
+
+      window.dataLayer.push({
+        event: "purchase_success",
+        book_title: productName,
+        value: amount ? Number(amount) : undefined,
+        currency: "INR",
+        transaction_id: paymentId,
+      });
+
+      sessionStorage.setItem("PURCHASE_TRACKED", "true");
+    }
+  })();
+</script>
